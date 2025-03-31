@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // 目标 JS 版本
+    "module": "ESNext", // 模块系统
+    "outDir": "./dist", // 输出目录
+    "rootDir": "./src", // 源代码目录
+    "strict": true, // 启用严格类型检查
+    "esModuleInterop": true, // 兼容 CommonJS 模块
+    "skipLibCheck": true // 跳过库类型检查
+  },
+  "include": ["src/**/*"], // 编译 src 目录下的所有 TS 文件
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Node Info Fetcher",
+  "version": "1.0.0",
+  "description": "Fetches DOM node information from webpages and sends it to a custom API.",
+  "permissions": ["activeTab", "https://api.example.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

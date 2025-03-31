@@ -1,0 +1,19 @@
+{
+  "name": "node-info-fetcher",
+  "version": "1.0.0",
+  "description": "Fetches DOM node information from webpages and sends it to a custom API.",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.263",
+    "esbuild": "^0.25.2",
+    "typescript": "^5.4.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
