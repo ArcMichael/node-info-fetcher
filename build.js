@@ -17,4 +17,19 @@ const manifestSrc = path.join(__dirname, "manifest.json");
 const manifestDest = path.join(__dirname, "dist", "manifest.json");
 fs.copyFileSync(manifestSrc, manifestDest, fs.constants.COPYFILE_FREPLACE);
 
+// 复制 popup.html 到 dist 目录
+const popupHtmlSrc = path.join(__dirname, "src", "popup.html");
+const popupHtmlDest = path.join(__dirname, "dist", "popup.html");
+fs.copyFileSync(popupHtmlSrc, popupHtmlDest, fs.constants.COPYFILE_FREPLACE);
+
+// 复制 popup.js 到 dist 目录
+const popupJsSrc = path.join(__dirname, "src", "popup.js");
+const popupJsDest = path.join(__dirname, "dist", "popup.js");
+fs.copyFileSync(popupJsSrc, popupJsDest, fs.constants.COPYFILE_FREPLACE);
+
+// 复制 icon.png 到 dist 目录
+const iconSrc = path.join(__dirname, "src", "icon.png");
+const iconDest = path.join(__dirname, "dist", "icon.png");
+fs.copyFileSync(iconSrc, iconDest, fs.constants.COPYFILE_FREPLACE);
+
 console.log("Build completed successfully!");

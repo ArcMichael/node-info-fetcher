@@ -1,3 +1,4 @@
+// src/background.ts
 console.log("Background script loaded!");
 
 interface FetchMessage {

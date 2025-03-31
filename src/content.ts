@@ -1,3 +1,4 @@
+// src/background.ts
 console.log("Content script injected!");
 
 function getNodeInfo(): Array<{
