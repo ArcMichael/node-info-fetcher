@@ -1,3 +1,4 @@
+// src/content.ts
 console.log("[content] 注入位置：", window.location.href);
 console.log("[content] 是否顶层？", window.top === window);
 console.log("[content] 内容脚本已注入！");
