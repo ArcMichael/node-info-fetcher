@@ -1,28 +1,93 @@
-<!-- src/popup.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <title>Popup Test</title>
+    <title>优惠信息校验器</title>
     <style>
       body {
         font-family: Arial, sans-serif;
-        width: 250px;
-        padding: 10px;
+        margin: 0;
+        padding: 0;
+        width: 600px;
+        height: 400px;
+        display: flex;
       }
-      h1 {
-        font-size: 16px;
+      .sidebar {
+        width: 200px;
+        border-right: 1px solid #ccc;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .content {
+        flex: 1;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .check-item {
         margin-bottom: 10px;
+        cursor: pointer;
+      }
+      .status {
+        margin-left: 5px;
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+      }
+      textarea {
+        width: 100%;
+        height: 60px;
+        resize: none;
       }
       button {
+        align-self: flex-end;
         padding: 5px 10px;
-        font-size: 14px;
+      }
+      .label {
+        font-weight: bold;
+        margin-top: 5px;
       }
     </style>
   </head>
   <body>
-    <h1>弹出页面显示正常</h1>
-    <button id="fetchInfo">点击获取信息</button>
+    <div class="sidebar">
+      <div class="check-item" data-key="activeName" data-label="优惠名称">
+        优惠名称：<span class="status">[确认]</span>
+      </div>
+      <div class="check-item" data-key="price" data-label="现价/原价">
+        现价/原价：<span class="status">[确认]</span>
+      </div>
+      <div class="check-item" data-key="link" data-label="链接校验">
+        链接校验：<span class="status">[确认]</span>
+      </div>
+      <div class="check-item" data-key="copy" data-label="链接拷贝">
+        链接拷贝：<span class="status">[确认]</span>
+      </div>
+      <div class="check-item" data-key="desc" data-label="优惠详情">
+        优惠详情：<span class="status">[编辑]</span>
+      </div>
+      <div class="check-item" data-key="notice" data-label="优惠须知">
+        优惠须知：<span class="status">[确认]</span>
+      </div>
+      <div class="check-item" data-key="rule" data-label="使用规则">
+        使用规则：<span class="status">[编辑]</span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="label">字段：<span id="fieldTitle">优惠名称</span></div>
+      <div>
+        <div class="label">AS-IS</div>
+        <textarea id="asIsValue" readonly></textarea>
+      </div>
+      <div>
+        <div class="label">TO-BE</div>
+        <textarea id="toBeValue"></textarea>
+      </div>
+      <button id="applyChange">修改</button>
+    </div>
+
     <script src="popup.js"></script>
   </body>
 </html>

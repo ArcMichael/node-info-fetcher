@@ -3,12 +3,14 @@
   "name": "Node Info Fetcher",
   "version": "1.0.0",
   "description": "Fetches DOM node information from webpages and sends it to a custom API.",
-  "permissions": ["activeTab", "https://api.example.com/*", "scripting"],
+  "permissions": ["activeTab", "scripting"],
   "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
     }
   ],
   "background": {
