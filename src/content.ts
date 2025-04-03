@@ -26,6 +26,16 @@ const fieldMapping: Record<string, FieldConfig> = {
     iframePath: ["/msh/active/draft/list/", "/msh/active/draft/modify/"],
     selector: "input[name='activePrice']",
   },
+  activeUrl: {
+    label: "落地页链接",
+    iframePath: ["/msh/active/draft/list/", "/msh/active/draft/modify/"],
+    selector: "#activeUrl[name='activeUrl']", // 可以用 name 也可以用 id
+  },
+  activeH5Url: {
+    label: "落地页链接",
+    iframePath: ["/msh/active/draft/list/", "/msh/active/draft/modify/"],
+    selector: "#activeH5Url[name='activeH5Url']", // 可以用 name 也可以用 id
+  },
   // 你可以继续加更多字段
 };
 

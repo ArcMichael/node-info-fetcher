@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Node Info Fetcher",
+  "name": "KAIWAI OPERATIONER",
   "version": "1.0.0",
   "description": "Fetches DOM node information from webpages and sends it to a custom API.",
   "permissions": ["activeTab", "scripting"],

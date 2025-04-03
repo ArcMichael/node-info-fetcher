@@ -63,23 +63,29 @@
       <div class="check-item" data-key="activePrice" data-label="现价">
         现价：<span class="status">[确认]</span>
       </div>
-      <div class="check-item" data-key="link" data-label="链接校验">
-        链接校验：<span class="status">[确认]</span>
+      <div class="check-item" data-key="activeUrl" data-label="优惠链接">
+        优惠链接：<span class="status">[确认]</span>
       </div>
-      <div class="check-item" data-key="copy" data-label="链接拷贝">
-        链接拷贝：<span class="status">[确认]</span>
+      <div class="check-item" data-key="activeH5Url" data-label="h5链接">
+        h5链接:<span class="status">[确认]</span>
       </div>
       <div class="check-item" data-key="desc" data-label="优惠详情">
         优惠详情：<span class="status">[编辑]</span>
       </div>
-      <div class="check-item" data-key="notice" data-label="优惠须知">
+      <!-- <div class="check-item" data-key="notice" data-label="优惠须知">
         优惠须知：<span class="status">[确认]</span>
       </div>
       <div class="check-item" data-key="rule" data-label="使用规则">
         使用规则：<span class="status">[编辑]</span>
-      </div>
+      </div> -->
     </div>
     <div class="content">
+      <!-- 🔔 错误提示区域 -->
+      <div
+        id="errorBox"
+        style="display: none; color: red; font-weight: bold"
+      ></div>
+
       <div class="label">字段：<span id="fieldTitle">优惠名称</span></div>
       <div>
         <div class="label">AS-IS</div>
@@ -90,6 +96,25 @@
         <textarea id="toBeValue"></textarea>
       </div>
       <button id="applyChange">修改</button>
+
+      <!-- 右侧的 AS-IS 表格区，仅在 key=desc 时展示 -->
+      <div id="tableContent" style="display: none">
+        <div class="label">优惠详情（AS-IS 表格）</div>
+        <table id="jsonTable">
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>价格</th>
+              <th>数量</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <button id="addRow">添加行</button>
+        <button id="generateJson">生成 JSON</button>
+        <div class="label">TO-BE</div>
+        <textarea id="jsonOutput" style="height: 100px"></textarea>
+      </div>
     </div>
 
     <script src="popup.js"></script>
