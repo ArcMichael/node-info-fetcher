@@ -17,9 +17,14 @@ const fieldMapping: Record<string, FieldConfig> = {
     selector: "#activeName",
   },
   price: {
-    label: "现价/原价",
+    label: "原价",
     iframePath: ["/msh/active/draft/list/", "/msh/active/draft/modify/"],
-    selector: "#priceInput",
+    selector: "input[name='price']",
+  },
+  activePrice: {
+    label: "原价",
+    iframePath: ["/msh/active/draft/list/", "/msh/active/draft/modify/"],
+    selector: "input[name='activePrice']",
   },
   // 你可以继续加更多字段
 };
