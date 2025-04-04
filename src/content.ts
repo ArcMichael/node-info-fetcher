@@ -36,6 +36,11 @@ const fieldMapping: Record<string, FieldConfig> = {
     iframePath: ["/msh/active/draft/list/", "/msh/active/draft/modify/"],
     selector: "#activeH5Url[name='activeH5Url']", // 可以用 name 也可以用 id
   },
+  desc: {
+    label: "优惠详情",
+    iframePath: ["/msh/active/draft/list/", "/msh/active/draft/modify/"],
+    selector: 'textarea[name="content"]',
+  },
   // 你可以继续加更多字段
 };
 

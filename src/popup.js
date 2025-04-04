@@ -34,9 +34,41 @@ function bindMessageButtonDynamic(key, label) {
 
         if (res?.success) {
           clearError();
-          asIsTextarea.value = res.value || "";
-          toBeTextarea.value = res.value || "";
           applyBtn.dataset.key = key;
+
+          if (key === "desc") {
+            // 切换显示：隐藏普通输入框，显示表格
+            document.getElementById("asIsValue").style.display = "none";
+            document.getElementById("toBeValue").style.display = "none";
+            document.getElementById("tableContent").style.display = "block";
+
+            const tbody = document.querySelector("#jsonTable tbody");
+            tbody.innerHTML = "";
+
+            try {
+              const data = JSON.parse(res.value || "[]");
+              data.forEach((row) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                  <td><input type="text" value="${row.gdName || ""}" /></td>
+                  <td><input type="number" value="${row.gdPrice || 0}" /></td>
+                  <td><input type="text" value="${row.gdCount || ""}" /></td>
+                `;
+                tbody.appendChild(tr);
+              });
+              document.getElementById("jsonOutput").value = res.value || "";
+            } catch {
+              showError("❌ JSON 解析失败，请检查格式");
+            }
+          } else {
+            // 普通字段显示
+            document.getElementById("tableContent").style.display = "none";
+            document.getElementById("asIsValue").style.display = "block";
+            document.getElementById("toBeValue").style.display = "block";
+
+            asIsTextarea.value = res.value || "";
+            toBeTextarea.value = res.value || "";
+          }
 
           // 🔒 HTTPS 校验（仅对链接类字段生效）
           if (key === "activeUrl" && res.value) {
@@ -80,7 +112,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   applyBtn.addEventListener("click", function () {
     const key = applyBtn.dataset.key;
-    const newVal = toBeTextarea.value;
+    const newVal =
+      key === "desc"
+        ? document.getElementById("jsonOutput").value
+        : toBeTextarea.value;
 
     if (!key) {
       alert("请先选择字段再修改！");
